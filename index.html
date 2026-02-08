@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomasz Gajda - Front-end Developer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Tech Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #E5E5E5; /* Light gray background matching the design */
+            color: #1D1D1D;
+        }
+        
+        /* Custom Clip Path for Hero Diagonal */
+        .hero-diagonal {
+            clip-path: polygon(25% 0%, 100% 0, 100% 100%, 0% 100%);
+            background-color: #1D1D1D;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-diagonal {
+                clip-path: none;
+                width: 100%;
+                height: 50%;
+                position: absolute;
+                bottom: 0;
+            }
+        }
+
+        /* Section Title Border Style */
+        .section-title-box {
+            border: 4px solid #1D1D1D;
+            padding: 10px 40px;
+            display: inline-block;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            background: transparent;
+        }
+
+        /* Custom Input Underline */
+        .input-underline {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #888;
+            border-left: 4px solid transparent; /* Placeholder for focus effect */
+            width: 100%;
+            padding: 10px 0;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .input-underline:focus {
+            border-bottom-color: #1D1D1D;
+            border-left: 4px solid #1D1D1D;
+            padding-left: 10px;
+        }
+
+        /* IT Berries Section Stripes */
+        .bg-stripes {
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 5px,
+                rgba(255,255,255,0.05) 5px,
+                rgba(255,255,255,0.05) 10px
+            );
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="absolute top-0 w-full z-50 py-6 px-6 md:px-12 flex justify-between items-center text-white mix-blend-difference">
+        <!-- Logo -->
+        <div class="text-3xl font-bold tracking-tighter">
+            <i class="fa-solid fa-code"></i>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest">
+            <a href="#about" class="hover:text-gray-300 transition-colors">About me</a>
+            <a href="#skills" class="hover:text-gray-300 transition-colors">Skills</a>
+            <a href="#portfolio" class="hover:text-gray-300 transition-colors">Portfolio</a>
+            <a href="#contact" class="border-2 border-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all">Contact me</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-2xl" data-mobile-menu-btn>
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div data-mobile-menu class="hidden md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg overflow-hidden z-40">
+        <div class="flex flex-col space-y-0">
+            <a href="#about" class="px-6 py-4 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 font-medium text-sm">About me</a>
+            <a href="#skills" class="px-6 py-4 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 font-medium text-sm">Skills</a>
+            <a href="#portfolio" class="px-6 py-4 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 font-medium text-sm">Portfolio</a>
+            <a href="#contact" class="px-6 py-4 text-left hover:bg-gray-100 transition-colors font-medium text-sm">Contact me</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen min-h-[700px] w-full bg-[#E5E5E5] flex items-center overflow-hidden">
+        
+        <!-- Black Diagonal Background (Right Side) -->
+        <div class="absolute top-0 right-0 h-full w-[55%] hero-diagonal z-0"></div>
+
+        <div class="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2 h-full items-center">
+            
+            <!-- Left Content -->
+            <div class="md:pr-10 pt-20 md:pt-0">
+                <p class="font-bold text-xl mb-2">Hi, I am</p>
+                <h1 class="text-5xl md:text-6xl font-black mb-4 tracking-tight leading-none">Tomasz Gajda</h1>
+                <p class="text-gray-500 font-medium text-lg mb-8">Front-end Developer / UI Designer</p>
+                
+                <div class="flex space-x-4 text-2xl text-gray-400">
+                    <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-envelope"></i></a>
+                    <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Right Content (Image) -->
+            <div class="relative h-full flex items-end justify-center md:justify-start">
+                <!-- Person Image Placeholder -->
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Tomasz Gajda" 
+                     class="h-[60%] md:h-[85%] object-cover grayscale contrast-125 z-10 relative bottom-0">
+            </div>
+        </div>
+    </header>
+
+    <!-- IT Berries Banner -->
+    <section class="bg-[#1D1D1D] text-white py-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-stripes pointer-events-none opacity-20"></div>
+        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between relative z-10">
+            <div class="max-w-2xl">
+                <h3 class="text-xl font-bold uppercase mb-2 tracking-widest">IT Berries</h3>
+                <p class="text-xs text-gray-400 leading-relaxed text-justify">
+                    Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. Spedizions nibh elit, ultricies quis erat sed, fermentum feugiat velit. Nunc volutpat, lectus sed ultricies lacinia, nibh ligula scelerisque massa, ut.
+                </p>
+            </div>
+            <a href="#" class="mt-6 md:mt-0 text-xs font-bold border-b border-white pb-1 hover:text-gray-300 hover:border-gray-300 transition-all uppercase tracking-widest">
+                Read more
+            </a>
+        </div>
+        <!-- Faint Background Text -->
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 text-[150px] font-black text-white opacity-[0.03] pointer-events-none select-none hidden md:block">
+            IT
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 bg-[#E5E5E5] text-center">
+        <div class="container mx-auto px-6">
+            <div class="mb-12">
+                <div class="section-title-box">About Me</div>
+                <p class="max-w-3xl mx-auto text-sm text-gray-600 leading-relaxed">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+                <div class="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-gray-400">Explore</div>
+                <div class="w-px h-10 bg-gray-400 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16 max-w-5xl mx-auto">
+                <!-- Design -->
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center text-3xl text-[#1D1D1D]">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h4 class="font-bold uppercase tracking-widest mb-2 text-sm">Design</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed px-4">
+                        Creating elegant and user-friendly interfaces with a focus on typography and whitespace.
+                    </p>
+                </div>
+                <!-- Development -->
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center text-3xl text-[#1D1D1D]">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h4 class="font-bold uppercase tracking-widest mb-2 text-sm">Development</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed px-4">
+                        Building fast, responsive, and scalable web applications using modern technologies.
+                    </p>
+                </div>
+                <!-- Maintenance -->
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center text-3xl text-[#1D1D1D]">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h4 class="font-bold uppercase tracking-widest mb-2 text-sm">Maintenance</h4>
+                    <p class="text-xs text-gray-500 leading-relaxed px-4">
+                        Ensuring your website remains up-to-date, secure, and performing at its best.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w-10 h-1 bg-gray-400 mx-auto mt-20"></div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-[#E5E5E5] text-center">
+        <div class="container mx-auto px-6">
+            <div class="section-title-box">Skills</div>
+            
+            <!-- Using Now -->
+            <h5 class="text-xs font-bold uppercase tracking-widest mb-10 mt-4 text-left md:text-center px-4 md:px-0">Using Now:</h5>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 max-w-5xl mx-auto mb-16">
+                <!-- HTML5 -->
+                <div class="flex flex-col items-center group">
+                    <i class="fa-brands fa-html5 text-5xl text-[#E34F26] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">HTML5</span>
+                </div>
+                <!-- CSS3 -->
+                <div class="flex flex-col items-center group">
+                    <i class="fa-brands fa-css3-alt text-5xl text-[#1572B6] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">CSS3</span>
+                </div>
+                <!-- SASS -->
+                <div class="flex flex-col items-center group">
+                    <i class="fa-brands fa-sass text-5xl text-[#CC6699] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">SASS</span>
+                </div>
+                <!-- JS -->
+                <div class="flex flex-col items-center group">
+                    <i class="fa-brands fa-js text-5xl text-[#F7DF1E] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">JavaScript</span>
+                </div>
+                <!-- React -->
+                <div class="flex flex-col items-center group">
+                    <i class="fa-brands fa-react text-5xl text-[#61DAFB] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">React</span>
+                </div>
+                <!-- Bootstrap -->
+                <div class="flex flex-col items-center group">
+                    <i class="fa-brands fa-bootstrap text-5xl text-[#7952B3] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">Bootstrap</span>
+                </div>
+                <!-- Git -->
+                <div class="flex flex-col items-center group">
+                    <i class="fa-brands fa-git-alt text-5xl text-[#F05032] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">Git</span>
+                </div>
+                <!-- Figma -->
+                <div class="flex flex-col items-center group">
+                    <i class="fa-brands fa-figma text-5xl text-[#F24E1E] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">Figma</span>
+                </div>
+            </div>
+
+            <!-- Learning -->
+            <h5 class="text-xs font-bold uppercase tracking-widest mb-10 text-left md:text-center px-4 md:px-0">Learning:</h5>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-4xl mx-auto mb-16">
+                 <!-- Node -->
+                 <div class="flex flex-col items-center group">
+                    <i class="fa-brands fa-node text-5xl text-[#339933] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">NodeJS</span>
+                </div>
+                 <!-- Database (Placeholder icon) -->
+                 <div class="flex flex-col items-center group">
+                    <i class="fa-solid fa-database text-5xl text-[#4479A1] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">MySQL</span>
+                </div>
+                 <!-- MongoDB -->
+                 <div class="flex flex-col items-center group">
+                    <i class="fa-solid fa-leaf text-5xl text-[#47A248] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">MongoDB</span>
+                </div>
+                <!-- TypeScript (Use Code icon as placeholder or fontawesome doesn't have official ts circle sometimes) -->
+                <div class="flex flex-col items-center group">
+                    <div class="text-5xl font-bold text-[#3178C6] mb-4 grayscale group-hover:grayscale-0 transition-all">TS</div>
+                    <span class="text-xs font-bold uppercase tracking-wide">TypeScript</span>
+                </div>
+            </div>
+
+            <!-- Other Skills -->
+            <h5 class="text-xs font-bold uppercase tracking-widest mb-10 text-left md:text-center px-4 md:px-0">Other Skills:</h5>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-3xl mx-auto">
+                 <div class="flex flex-col items-center">
+                    <span class="text-4xl mb-4">🇬🇧</span>
+                    <span class="text-xs font-bold uppercase tracking-wide">English C1/C2</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-4xl mb-4">🇪🇸</span>
+                    <span class="text-xs font-bold uppercase tracking-wide">Spanish B1/B2</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fa-brands fa-cuttlefish text-4xl text-[#00599C] mb-4"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">C++</span>
+                </div>
+                 <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-c text-4xl text-[#A8B9CC] mb-4"></i>
+                    <span class="text-xs font-bold uppercase tracking-wide">C</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="bg-[#1D1D1D] text-white">
+        <!-- Parallax/Image Header for Portfolio -->
+        <div class="h-64 md:h-80 bg-cover bg-center bg-fixed relative flex items-center justify-center" 
+             style="background-image: url('https://images.unsplash.com/photo-1519681393798-38e43269d877?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="relative z-10 border-4 border-white px-10 py-3 uppercase font-bold tracking-[0.2em] text-xl">
+                Portfolio
+            </div>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="bg-[#181818] py-8">
+            <div class="container mx-auto px-6">
+                <!-- Filters -->
+                <div class="flex justify-center space-x-8 text-xs font-bold uppercase tracking-widest mb-12">
+                    <button data-portfolio-filter="all" class="text-white border-b-2 border-white pb-1">All</button>
+                    <button data-portfolio-filter="coded" class="text-gray-500 hover:text-white transition-colors">Coded</button>
+                    <button data-portfolio-filter="designed" class="text-gray-500 hover:text-white transition-colors">Designed</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+                    <!-- Project 1 -->
+                    <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="coded">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
+                            <h4 class="font-bold uppercase tracking-widest mb-2">Retro Game</h4>
+                            <p class="text-xs text-gray-400 mb-4">React • CSS</p>
+                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">View</a>
+                        </div>
+                    </div>
+                     <!-- Project 2 -->
+                     <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="designed">
+                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
+                            <h4 class="font-bold uppercase tracking-widest mb-2">Dashboard UI</h4>
+                            <p class="text-xs text-gray-400 mb-4">Figma • Design</p>
+                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">View</a>
+                        </div>
+                    </div>
+                     <!-- Project 3 -->
+                     <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="coded">
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
+                            <h4 class="font-bold uppercase tracking-widest mb-2">Code Syntax</h4>
+                            <p class="text-xs text-gray-400 mb-4">JS • Node</p>
+                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">View</a>
+                        </div>
+                    </div>
+                     <!-- Project 4 -->
+                     <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="designed">
+                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
+                            <h4 class="font-bold uppercase tracking-widest mb-2">Nature Walk</h4>
+                            <p class="text-xs text-gray-400 mb-4">HTML • SASS</p>
+                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">View</a>
+                        </div>
+                    </div>
+                     <!-- Project 5 -->
+                     <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="coded">
+                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
+                            <h4 class="font-bold uppercase tracking-widest mb-2">Car Rental</h4>
+                            <p class="text-xs text-gray-400 mb-4">React • API</p>
+                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">View</a>
+                        </div>
+                    </div>
+                     <!-- Project 6 -->
+                     <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="designed">
+                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
+                            <h4 class="font-bold uppercase tracking-widest mb-2">Neon Lights</h4>
+                            <p class="text-xs text-gray-400 mb-4">Design • Art</p>
+                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 mb-4 font-bold uppercase tracking-widest text-xs">
+                    And many more to come!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-[#E5E5E5] text-center">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <div class="section-title-box">Contact</div>
+            <p class="text-sm text-gray-600 mb-12">
+                Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. Spedizions nibh elit, ultricies quis erat sed, fermentum feugiat velit.
+            </p>
+            
+            <div class="w-10 h-1 bg-gray-400 mx-auto mb-16"></div>
+
+            <form class="space-y-8 text-left">
+                <div>
+                    <input type="text" placeholder="ENTER YOUR NAME*" class="input-underline bg-transparent text-sm placeholder-gray-500">
+                </div>
+                <div>
+                    <input type="email" placeholder="ENTER YOUR EMAIL*" class="input-underline bg-transparent text-sm placeholder-gray-500">
+                </div>
+                <div>
+                    <input type="tel" placeholder="PHONE NUMBER" class="input-underline bg-transparent text-sm placeholder-gray-500">
+                </div>
+                <div>
+                    <textarea rows="1" placeholder="YOUR MESSAGE*" class="input-underline bg-transparent text-sm placeholder-gray-500 resize-none"></textarea>
+                </div>
+                
+                <div class="text-center pt-8">
+                    <button class="font-bold uppercase tracking-[0.2em] text-sm hover:text-gray-600 transition-colors border-l-4 border-black pl-4">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1D1D1D] text-white py-12 text-center">
+        <div class="mb-8">
+            <a href="#" class="inline-block animate-bounce" data-back-to-top>
+                <i class="fa-solid fa-angles-up text-xl mb-2"></i>
+                <div class="text-xs font-bold uppercase tracking-widest">Back to Top</div>
+            </a>
+        </div>
+        
+        <div class="flex justify-center space-x-6 mb-8 text-xl text-gray-400">
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+        
+        <p class="text-xs text-gray-500 font-bold uppercase tracking-widest">
+            @2020 Tomasz Gajda All Rights Reserved.
+        </p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

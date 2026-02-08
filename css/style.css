@@ -1,0 +1,267 @@
+/* ========================================
+   Tomasz Gajda Portfolio - Custom Styles
+   ======================================== */
+
+:root {
+    --color-dark: #1D1D1D;
+    --color-light: #E5E5E5;
+    --color-white: #FFFFFF;
+    --color-grey: #888;
+    --transition: all 0.3s ease-in-out;
+}
+
+/* ========================================
+   Navigation Styles
+   ======================================== */
+nav {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav button:hover {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+/* Mobile Menu Styles */
+[data-mobile-menu] {
+    transition: all 0.3s ease;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+[data-mobile-menu].hidden {
+    max-height: 0;
+    overflow: hidden;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   Section Animations
+   ======================================== */
+.section-title-box {
+    animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+.about-card {
+    animation: fadeInUp 0.6s ease both;
+}
+
+.about-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.about-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.about-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.skill-icon {
+    animation: scaleIn 0.4s ease both;
+    transition: all 0.3s ease;
+}
+
+.skill-icon:hover {
+    transform: scale(1.1);
+}
+
+.portfolio-item {
+    animation: fadeInUp 0.6s ease both;
+}
+
+.portfolio-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.portfolio-item:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.portfolio-item:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.portfolio-item:nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+.portfolio-item:nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+.portfolio-item:nth-child(6) {
+    animation-delay: 0.35s;
+}
+
+/* ========================================
+   Button Styles
+   ======================================== */
+button, a.btn {
+    transition: all 0.3s ease;
+}
+
+button:hover, a.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   Form Input Styles
+   ======================================== */
+.input-underline {
+    animation: fadeInUp 0.6s ease both;
+    transition: all 0.3s ease;
+}
+
+.input-underline:focus {
+    animation: none;
+}
+
+/* ========================================
+   Hero Section
+   ======================================== */
+header {
+    animation: fadeInUp 0.8s ease;
+}
+
+/* ========================================
+   Page Section Transition
+   ======================================== */
+.page-section {
+    transition: opacity 0.4s ease-in-out;
+}
+
+.hidden-section {
+    display: none;
+    opacity: 0;
+}
+
+/* ========================================
+   Reveal on Scroll
+   ======================================== */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-reveal].visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+@media (max-width: 768px) {
+    [data-mobile-menu] {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-white);
+        border-bottom: 1px solid #ddd;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    [data-mobile-menu].hidden {
+        display: none;
+    }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+@media print {
+    nav, footer {
+        display: none;
+    }
+
+    body {
+        background-color: var(--color-white);
+    }
+}
