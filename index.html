@@ -2,456 +2,203 @@
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tomasz Gajda - Pengembang Front-end</title>
-    
-    <!-- Tailwind CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Portofolio front-end developer dan UI designer yang fokus pada website cepat, responsif, mudah dikembangkan, dan siap digunakan bisnis.">
+    <meta name="theme-color" content="#111111">
+    <title>Tomasz Gajda - Front-end Developer & UI Designer</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Tech Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
- 
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #E5E5E5; /* Light gray background matching the design */
-            color: #1D1D1D;
-        }
-        
-        /* Custom Clip Path for Hero Diagonal */
-        .hero-diagonal {
-            clip-path: polygon(25% 0%, 100% 0, 100% 100%, 0% 100%);
-            background-color: #1D1D1D;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-diagonal {
-                clip-path: none;
-                width: 100%;
-                height: 50%;
-                position: absolute;
-                bottom: 0;
-            }
-        }
- 
-        /* Section Title Border Style */
-        .section-title-box {
-            border: 4px solid #1D1D1D;
-            padding: 10px 40px;
-            display: inline-block;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            background: transparent;
-        }
- 
-        /* Custom Input Underline */
-        .input-underline {
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid #888;
-            border-left: 4px solid transparent; /* Placeholder for focus effect */
-            width: 100%;
-            padding: 10px 0;
-            outline: none;
-            transition: all 0.3s;
-        }
-        .input-underline:focus {
-            border-bottom-color: #1D1D1D;
-            border-left: 4px solid #1D1D1D;
-            padding-left: 10px;
-        }
- 
-        /* IT Berries Section Stripes */
-        .bg-stripes {
-            background-image: repeating-linear-gradient(
-                -45deg,
-                transparent,
-                transparent 5px,
-                rgba(255,255,255,0.05) 5px,
-                rgba(255,255,255,0.05) 10px
-            );
-        }
-    </style>
 </head>
-<body class="overflow-x-hidden">
- 
-    <!-- Navbar -->
-    <nav class="absolute top-0 w-full z-50 py-6 px-6 md:px-12 flex justify-between items-center text-white mix-blend-difference">
-        <!-- Logo -->
-        <div class="text-3xl font-bold tracking-tighter">
-            <i class="fa-solid fa-code"></i>
+<body>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
+    <nav class="site-nav" aria-label="Navigasi utama">
+        <a href="#home" class="brand" aria-label="Kembali ke beranda">
+            <i class="fa-solid fa-code" aria-hidden="true"></i>
+            <span>TG</span>
+        </a>
+
+        <div class="desktop-menu" data-nav-links>
+            <a href="#about">Tentang</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#portfolio">Portofolio</a>
+            <a href="#process">Proses</a>
+            <a href="#contact" class="nav-cta">Hubungi Saya</a>
         </div>
-        
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest">
-            <a href="#about" class="hover:text-gray-300 transition-colors">Tentang saya</a>
-            <a href="#skills" class="hover:text-gray-300 transition-colors">Keahlian</a>
-            <a href="#portfolio" class="hover:text-gray-300 transition-colors">Portofolio</a>
-            <a href="#contact" class="border-2 border-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all">Hubungi saya</a>
-        </div>
- 
-        <!-- Mobile Menu Button -->
-        <button class="md:hidden text-2xl" data-mobile-menu-btn>
-            <i class="fa-solid fa-bars"></i>
+
+        <button class="menu-toggle" type="button" data-mobile-menu-btn aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
     </nav>
- 
-    <!-- Mobile Menu -->
-    <div data-mobile-menu class="hidden md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg overflow-hidden z-40">
-        <div class="flex flex-col space-y-0">
-            <a href="#about" class="px-6 py-4 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 font-medium text-sm">Tentang saya</a>
-            <a href="#skills" class="px-6 py-4 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 font-medium text-sm">Keahlian</a>
-            <a href="#portfolio" class="px-6 py-4 text-left hover:bg-gray-100 transition-colors border-b border-gray-200 font-medium text-sm">Portofolio</a>
-            <a href="#contact" class="px-6 py-4 text-left hover:bg-gray-100 transition-colors font-medium text-sm">Hubungi saya</a>
-        </div>
+
+    <div id="mobile-menu" data-mobile-menu class="mobile-menu" hidden>
+        <a href="#about">Tentang</a>
+        <a href="#skills">Keahlian</a>
+        <a href="#portfolio">Portofolio</a>
+        <a href="#process">Proses</a>
+        <a href="#contact">Hubungi Saya</a>
     </div>
- 
-    <!-- Hero Section -->
-    <header class="relative h-screen min-h-[700px] w-full bg-[#E5E5E5] flex items-center overflow-hidden">
-        
-        <!-- Black Diagonal Background (Right Side) -->
-        <div class="absolute top-0 right-0 h-full w-[55%] hero-diagonal z-0"></div>
- 
-        <div class="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2 h-full items-center">
-            
-            <!-- Left Content -->
-            <div class="md:pr-10 pt-20 md:pt-0">
-                <p class="font-bold text-xl mb-2">Halo, saya</p>
-                <h1 class="text-5xl md:text-6xl font-black mb-4 tracking-tight leading-none">Tomasz Gajda</h1>
-                <p class="text-gray-500 font-medium text-lg mb-8">Front-end Developer / Desainer UI</p>
-                
-                <div class="flex space-x-4 text-2xl text-gray-400">
-                    <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-envelope"></i></a>
-                    <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="hover:text-black transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+
+    <main id="main-content">
+        <header id="home" class="hero section-shell">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <section class="hero-copy" data-reveal>
+                <p class="eyebrow">Halo, saya</p>
+                <h1>Tomasz Gajda</h1>
+                <p class="hero-lead">Front-end developer & UI designer yang membangun pengalaman web cepat, responsif, mudah dirawat, dan siap tumbuh bersama kebutuhan bisnis.</p>
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn-primary">Lihat Karya</a>
+                    <a href="#contact" class="btn-secondary">Diskusi Proyek</a>
                 </div>
+                <div class="social-links" aria-label="Tautan sosial">
+                    <a href="mailto:hello@example.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+                    <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </section>
+            <section class="hero-visual" aria-label="Ringkasan profil" data-reveal data-parallax-wrap>
+                <img data-parallax-image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80" alt="Potret profesional Tomasz Gajda" width="900" height="1100">
+                <div class="hero-card" data-parallax-card>
+                    <strong>6+ tahun</strong>
+                    <span>membuat website modern dan scalable</span>
+                </div>
+            </section>
+        </header>
+
+        <section class="proof-bar" aria-label="Nilai utama">
+            <div><strong>95+</strong><span>Skor performa target</span></div>
+            <div><strong>Mobile-first</strong><span>Layout adaptif semua layar</span></div>
+            <div><strong>Reusable</strong><span>Komponen mudah diperluas</span></div>
+            <div><strong>SEO-ready</strong><span>Struktur semantik rapi</span></div>
+        </section>
+
+        <section id="about" class="section-shell section-block about-section">
+            <div class="section-heading" data-reveal>
+                <span class="section-title-box">Tentang Saya</span>
+                <p>Saya membantu brand, startup, dan kreator membangun website yang tidak hanya terlihat premium, tetapi juga nyaman dipakai, cepat dimuat, dan mudah dikembangkan oleh tim berikutnya.</p>
             </div>
- 
-            <!-- Right Content (Image) -->
-            <div class="relative h-full flex items-end justify-center md:justify-start">
-                <!-- Person Image Placeholder -->
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Tomasz Gajda" 
-                     class="h-[60%] md:h-[85%] object-cover grayscale contrast-125 z-10 relative bottom-0">
+            <div class="service-grid">
+                <article class="service-card" data-reveal>
+                    <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Merancang alur, wireframe, dan visual interface yang jelas agar pengguna cepat memahami nilai produk.</p>
+                </article>
+                <article class="service-card" data-reveal>
+                    <i class="fa-solid fa-code" aria-hidden="true"></i>
+                    <h3>Front-end Development</h3>
+                    <p>Mengubah desain menjadi halaman responsif dengan HTML semantik, CSS terstruktur, dan JavaScript ringan.</p>
+                </article>
+                <article class="service-card" data-reveal>
+                    <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                    <h3>Optimasi & Skalabilitas</h3>
+                    <p>Menyiapkan struktur konten, komponen, dan performa agar website siap bertambah halaman maupun fitur.</p>
+                </article>
             </div>
-        </div>
-    </header>
- 
-    <!-- IT Berries Banner -->
-    <section class="bg-[#1D1D1D] text-white py-12 relative overflow-hidden">
-        <div class="absolute inset-0 bg-stripes pointer-events-none opacity-20"></div>
-        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between relative z-10">
-            <div class="max-w-2xl">
-                <h3 class="text-xl font-bold uppercase mb-2 tracking-widest">IT Berries</h3>
-                <p class="text-xs text-gray-400 leading-relaxed text-justify">
-                    Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. Spedizions nibh elit, ultricies quis erat sed, fermentum feugiat velit. Nunc volutpat, lectus sed ultricies lacinia, nibh ligula scelerisque massa, ut.
-                </p>
+        </section>
+
+        <section id="skills" class="section-shell section-block skills-section">
+            <div class="section-heading" data-reveal>
+                <span class="section-title-box">Keahlian</span>
+                <p>Stack yang dipilih fokus pada fondasi web kuat, desain konsisten, serta workflow yang mudah dikolaborasikan.</p>
             </div>
-            <a href="#" class="mt-6 md:mt-0 text-xs font-bold border-b border-white pb-1 hover:text-gray-300 hover:border-gray-300 transition-all uppercase tracking-widest">
-                Baca selengkapnya
-            </a>
-        </div>
-        <!-- Faint Background Text -->
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 text-[150px] font-black text-white opacity-[0.03] pointer-events-none select-none hidden md:block">
-            IT
-        </div>
-    </section>
- 
-    <!-- About Me Section -->
-    <section id="about" class="py-24 bg-[#E5E5E5] text-center">
-        <div class="container mx-auto px-6">
-            <div class="mb-12">
-                <div class="section-title-box">Tentang Saya</div>
-                <p class="max-w-3xl mx-auto text-sm text-gray-600 leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                </p>
-                <div class="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-gray-400">Jelajahi</div>
-                <div class="w-px h-10 bg-gray-400 mx-auto mt-4"></div>
-            </div>
- 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16 max-w-5xl mx-auto">
-                <!-- Design -->
-                <div class="flex flex-col items-center">
-                    <div class="w-16 h-16 mb-4 flex items-center justify-center text-3xl text-[#1D1D1D]">
-                        <i class="fa-solid fa-pen-nib"></i>
+            <div class="skills-layout">
+                <article data-reveal>
+                    <h3>Teknologi utama</h3>
+                    <div class="skill-grid">
+                        <span><i class="fa-brands fa-html5"></i>HTML5</span>
+                        <span><i class="fa-brands fa-css3-alt"></i>CSS3</span>
+                        <span><i class="fa-brands fa-js"></i>JavaScript</span>
+                        <span><i class="fa-brands fa-react"></i>React</span>
+                        <span><i class="fa-brands fa-sass"></i>Sass</span>
+                        <span><i class="fa-brands fa-git-alt"></i>Git</span>
                     </div>
-                    <h4 class="font-bold uppercase tracking-widest mb-2 text-sm">Desain</h4>
-                    <p class="text-xs text-gray-500 leading-relaxed px-4">
-                        Menciptakan antarmuka yang elegan dan ramah pengguna dengan fokus pada tipografi dan ruang kosong.
-                    </p>
-                </div>
-                <!-- Development -->
-                <div class="flex flex-col items-center">
-                    <div class="w-16 h-16 mb-4 flex items-center justify-center text-3xl text-[#1D1D1D]">
-                        <i class="fa-solid fa-code"></i>
-                    </div>
-                    <h4 class="font-bold uppercase tracking-widest mb-2 text-sm">Pengembangan</h4>
-                    <p class="text-xs text-gray-500 leading-relaxed px-4">
-                        Membangun aplikasi web yang cepat, responsif, dan terukur menggunakan teknologi modern.
-                    </p>
-                </div>
-                <!-- Maintenance -->
-                <div class="flex flex-col items-center">
-                    <div class="w-16 h-16 mb-4 flex items-center justify-center text-3xl text-[#1D1D1D]">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                    </div>
-                    <h4 class="font-bold uppercase tracking-widest mb-2 text-sm">Pemeliharaan</h4>
-                    <p class="text-xs text-gray-500 leading-relaxed px-4">
-                        Memastikan situs web Anda tetap mutakhir, aman, dan berkinerja terbaik.
-                    </p>
-                </div>
+                </article>
+                <article data-reveal>
+                    <h3>Kapabilitas</h3>
+                    <ul class="capability-list">
+                        <li>Responsive layout berbasis mobile-first dan fluid grid.</li>
+                        <li>Design system sederhana untuk warna, spacing, dan komponen.</li>
+                        <li>Optimasi aksesibilitas, navigasi keyboard, dan struktur heading.</li>
+                        <li>Integrasi portfolio, landing page, company profile, dan dashboard ringan.</li>
+                    </ul>
+                </article>
             </div>
-            
-            <div class="w-10 h-1 bg-gray-400 mx-auto mt-20"></div>
-        </div>
-    </section>
- 
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 bg-[#E5E5E5] text-center">
-        <div class="container mx-auto px-6">
-            <div class="section-title-box">Keahlian</div>
-            
-            <!-- Using Now -->
-            <h5 class="text-xs font-bold uppercase tracking-widest mb-10 mt-4 text-left md:text-center px-4 md:px-0">Sedang Digunakan:</h5>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 max-w-5xl mx-auto mb-16">
-                <!-- HTML5 -->
-                <div class="flex flex-col items-center group">
-                    <i class="fa-brands fa-html5 text-5xl text-[#E34F26] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">HTML5</span>
-                </div>
-                <!-- CSS3 -->
-                <div class="flex flex-col items-center group">
-                    <i class="fa-brands fa-css3-alt text-5xl text-[#1572B6] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">CSS3</span>
-                </div>
-                <!-- SASS -->
-                <div class="flex flex-col items-center group">
-                    <i class="fa-brands fa-sass text-5xl text-[#CC6699] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">SASS</span>
-                </div>
-                <!-- JS -->
-                <div class="flex flex-col items-center group">
-                    <i class="fa-brands fa-js text-5xl text-[#F7DF1E] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">JavaScript</span>
-                </div>
-                <!-- React -->
-                <div class="flex flex-col items-center group">
-                    <i class="fa-brands fa-react text-5xl text-[#61DAFB] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">React</span>
-                </div>
-                <!-- Bootstrap -->
-                <div class="flex flex-col items-center group">
-                    <i class="fa-brands fa-bootstrap text-5xl text-[#7952B3] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">Bootstrap</span>
-                </div>
-                <!-- Git -->
-                <div class="flex flex-col items-center group">
-                    <i class="fa-brands fa-git-alt text-5xl text-[#F05032] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">Git</span>
-                </div>
-                <!-- Figma -->
-                <div class="flex flex-col items-center group">
-                    <i class="fa-brands fa-figma text-5xl text-[#F24E1E] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">Figma</span>
-                </div>
+        </section>
+
+        <section id="portfolio" class="portfolio-section">
+            <div class="portfolio-hero">
+                <span class="section-title-box light">Portofolio</span>
+                <p>Contoh arah proyek yang menonjolkan performa, responsivitas, dan pengalaman pengguna.</p>
             </div>
- 
-            <!-- Learning -->
-            <h5 class="text-xs font-bold uppercase tracking-widest mb-10 text-left md:text-center px-4 md:px-0">Sedang Dipelajari:</h5>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-4xl mx-auto mb-16">
-                 <!-- Node -->
-                 <div class="flex flex-col items-center group">
-                    <i class="fa-brands fa-node text-5xl text-[#339933] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">NodeJS</span>
-                </div>
-                 <!-- Database (Placeholder icon) -->
-                 <div class="flex flex-col items-center group">
-                    <i class="fa-solid fa-database text-5xl text-[#4479A1] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">MySQL</span>
-                </div>
-                 <!-- MongoDB -->
-                 <div class="flex flex-col items-center group">
-                    <i class="fa-solid fa-leaf text-5xl text-[#47A248] mb-4 grayscale group-hover:grayscale-0 transition-all"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">MongoDB</span>
-                </div>
-                <!-- TypeScript -->
-                <div class="flex flex-col items-center group">
-                    <div class="text-5xl font-bold text-[#3178C6] mb-4 grayscale group-hover:grayscale-0 transition-all">TS</div>
-                    <span class="text-xs font-bold uppercase tracking-wide">TypeScript</span>
-                </div>
+            <div class="portfolio-controls" aria-label="Filter portofolio">
+                <button type="button" data-portfolio-filter="all" class="is-active">Semua</button>
+                <button type="button" data-portfolio-filter="coded">Koding</button>
+                <button type="button" data-portfolio-filter="designed">Desain</button>
             </div>
- 
-            <!-- Other Skills -->
-            <h5 class="text-xs font-bold uppercase tracking-widest mb-10 text-left md:text-center px-4 md:px-0">Keahlian Lainnya:</h5>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-3xl mx-auto">
-                 <div class="flex flex-col items-center">
-                    <span class="text-4xl mb-4">🇬🇧</span>
-                    <span class="text-xs font-bold uppercase tracking-wide">Bahasa Inggris C1/C2</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-4xl mb-4">🇪🇸</span>
-                    <span class="text-xs font-bold uppercase tracking-wide">Bahasa Spanyol B1/B2</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <i class="fa-brands fa-cuttlefish text-4xl text-[#00599C] mb-4"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">C++</span>
-                </div>
-                 <div class="flex flex-col items-center">
-                    <i class="fa-solid fa-c text-4xl text-[#A8B9CC] mb-4"></i>
-                    <span class="text-xs font-bold uppercase tracking-wide">C</span>
-                </div>
+            <div class="portfolio-grid section-shell">
+                <article class="portfolio-card" data-portfolio-category="coded" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=700&q=80" alt="Tampilan proyek game retro" loading="lazy" width="700" height="500">
+                    <div><span>React • CSS</span><h3>Game Retro</h3><p>Landing interaktif dengan micro-interaction dan animasi ringan.</p></div>
+                </article>
+                <article class="portfolio-card" data-portfolio-category="designed" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=700&q=80" alt="Desain dashboard modern" loading="lazy" width="700" height="500">
+                    <div><span>Figma • UI Kit</span><h3>Dashboard SaaS</h3><p>Komponen reusable untuk analitik, tabel, kartu metrik, dan navigasi.</p></div>
+                </article>
+                <article class="portfolio-card" data-portfolio-category="coded" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=700&q=80" alt="Kode aplikasi web" loading="lazy" width="700" height="500">
+                    <div><span>JavaScript • API</span><h3>Web App Modular</h3><p>Struktur kode terpisah agar fitur baru mudah ditambahkan.</p></div>
+                </article>
+                <article class="portfolio-card" data-portfolio-category="designed" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=700&q=80" alt="Konsep halaman travel" loading="lazy" width="700" height="500">
+                    <div><span>Branding • Web Design</span><h3>Travel Experience</h3><p>Visual editorial dengan storytelling yang kuat untuk promosi destinasi.</p></div>
+                </article>
             </div>
-        </div>
-    </section>
- 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="bg-[#1D1D1D] text-white">
-        <!-- Parallax/Image Header for Portfolio -->
-        <div class="h-64 md:h-80 bg-cover bg-center bg-fixed relative flex items-center justify-center" 
-             style="background-image: url('https://images.unsplash.com/photo-1519681393798-38e43269d877?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');">
-            <div class="absolute inset-0 bg-black/40"></div>
-            <div class="relative z-10 border-4 border-white px-10 py-3 uppercase font-bold tracking-[0.2em] text-xl">
-                Portofolio
+        </section>
+
+        <section id="process" class="section-shell section-block process-section">
+            <div class="section-heading" data-reveal>
+                <span class="section-title-box">Proses Kerja</span>
+                <p>Alur dibuat transparan agar scope, prioritas, dan hasil akhir tetap terukur.</p>
             </div>
-        </div>
- 
-        <!-- Portfolio Grid -->
-        <div class="bg-[#181818] py-8">
-            <div class="container mx-auto px-6">
-                <!-- Filters -->
-                <div class="flex justify-center space-x-8 text-xs font-bold uppercase tracking-widest mb-12">
-                    <button data-portfolio-filter="all" class="text-white border-b-2 border-white pb-1">Semua</button>
-                    <button data-portfolio-filter="coded" class="text-gray-500 hover:text-white transition-colors">Koding</button>
-                    <button data-portfolio-filter="designed" class="text-gray-500 hover:text-white transition-colors">Desain</button>
-                </div>
- 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
-                    <!-- Project 1 -->
-                    <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="coded">
-                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
-                            <h4 class="font-bold uppercase tracking-widest mb-2">Game Retro</h4>
-                            <p class="text-xs text-gray-400 mb-4">React • CSS</p>
-                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">Lihat</a>
-                        </div>
-                    </div>
-                     <!-- Project 2 -->
-                     <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="designed">
-                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
-                            <h4 class="font-bold uppercase tracking-widest mb-2">UI Dasbor</h4>
-                            <p class="text-xs text-gray-400 mb-4">Figma • Desain</p>
-                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">Lihat</a>
-                        </div>
-                    </div>
-                     <!-- Project 3 -->
-                     <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="coded">
-                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
-                            <h4 class="font-bold uppercase tracking-widest mb-2">Sintaks Kode</h4>
-                            <p class="text-xs text-gray-400 mb-4">JS • Node</p>
-                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">Lihat</a>
-                        </div>
-                    </div>
-                     <!-- Project 4 -->
-                     <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="designed">
-                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
-                            <h4 class="font-bold uppercase tracking-widest mb-2">Jalan Alam</h4>
-                            <p class="text-xs text-gray-400 mb-4">HTML • SASS</p>
-                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">Lihat</a>
-                        </div>
-                    </div>
-                     <!-- Project 5 -->
-                     <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="coded">
-                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
-                            <h4 class="font-bold uppercase tracking-widest mb-2">Sewa Mobil</h4>
-                            <p class="text-xs text-gray-400 mb-4">React • API</p>
-                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">Lihat</a>
-                        </div>
-                    </div>
-                     <!-- Project 6 -->
-                     <div class="relative group h-64 overflow-hidden portfolio-item" data-portfolio-category="designed">
-                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-6">
-                            <h4 class="font-bold uppercase tracking-widest mb-2">Lampu Neon</h4>
-                            <p class="text-xs text-gray-400 mb-4">Desain • Seni</p>
-                            <a href="#" class="text-xs border border-white px-4 py-2 uppercase tracking-widest hover:bg-white hover:text-black transition-colors">Lihat</a>
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="text-center mt-12 mb-4 font-bold uppercase tracking-widest text-xs">
-                    Dan masih banyak lagi yang akan datang!
-                </div>
+            <ol class="process-list">
+                <li data-reveal><strong>01. Discovery</strong><span>Memahami tujuan bisnis, audiens, konten, dan batasan teknis.</span></li>
+                <li data-reveal><strong>02. Design System</strong><span>Menyusun struktur visual yang konsisten dan reusable.</span></li>
+                <li data-reveal><strong>03. Build & Optimize</strong><span>Mengembangkan halaman responsif, cepat, dan mudah dipelihara.</span></li>
+                <li data-reveal><strong>04. Launch Support</strong><span>Final check aksesibilitas, responsivitas, dan dokumentasi penggunaan.</span></li>
+            </ol>
+        </section>
+
+        <section id="contact" class="section-shell section-block contact-section">
+            <div class="section-heading" data-reveal>
+                <span class="section-title-box">Kontak</span>
+                <p>Punya ide website, redesign, atau landing page baru? Kirim detail singkat dan saya akan bantu susun langkah berikutnya.</p>
             </div>
-        </div>
-    </section>
- 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-[#E5E5E5] text-center">
-        <div class="container mx-auto px-6 max-w-2xl">
-            <div class="section-title-box">Kontak</div>
-            <p class="text-sm text-gray-600 mb-12">
-                Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. Spedizions nibh elit, ultricies quis erat sed, fermentum feugiat velit.
-            </p>
-            
-            <div class="w-10 h-1 bg-gray-400 mx-auto mb-16"></div>
- 
-            <form class="space-y-8 text-left">
-                <div>
-                    <input type="text" placeholder="MASUKKAN NAMA ANDA*" class="input-underline bg-transparent text-sm placeholder-gray-500">
-                </div>
-                <div>
-                    <input type="email" placeholder="MASUKKAN EMAIL ANDA*" class="input-underline bg-transparent text-sm placeholder-gray-500">
-                </div>
-                <div>
-                    <input type="tel" placeholder="NOMOR TELEPON" class="input-underline bg-transparent text-sm placeholder-gray-500">
-                </div>
-                <div>
-                    <textarea rows="1" placeholder="PESAN ANDA*" class="input-underline bg-transparent text-sm placeholder-gray-500 resize-none"></textarea>
-                </div>
-                
-                <div class="text-center pt-8">
-                    <button class="font-bold uppercase tracking-[0.2em] text-sm hover:text-gray-600 transition-colors border-l-4 border-black pl-4">Kirim</button>
-                </div>
+            <form class="contact-form" novalidate data-reveal>
+                <label>Nama<input type="text" name="name" autocomplete="name" required placeholder="Nama lengkap"></label>
+                <label>Email<input type="email" name="email" autocomplete="email" required placeholder="email@domain.com"></label>
+                <label>Telepon<input type="tel" name="phone" autocomplete="tel" placeholder="Opsional"></label>
+                <label>Pesan<textarea name="message" rows="5" required placeholder="Ceritakan kebutuhan proyek Anda"></textarea></label>
+                <button type="submit" class="btn-primary">Kirim Pesan</button>
+                <p class="form-status" data-form-status role="status" aria-live="polite"></p>
             </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <button type="button" data-back-to-top class="back-to-top" aria-label="Kembali ke atas"><i class="fa-solid fa-angles-up"></i></button>
+        <div class="footer-social" aria-label="Tautan sosial footer">
+            <a href="mailto:hello@example.com" aria-label="Email"><i class="fa-regular fa-envelope"></i><span>Email</span></a>
+            <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span></a>
         </div>
-    </section>
- 
-    <!-- Footer -->
-    <footer class="bg-[#1D1D1D] text-white py-12 text-center">
-        <div class="mb-8">
-            <a href="#" class="inline-block animate-bounce" data-back-to-top>
-                <i class="fa-solid fa-angles-up text-xl mb-2"></i>
-                <div class="text-xs font-bold uppercase tracking-widest">Kembali ke Atas</div>
-            </a>
-        </div>
-        
-        <div class="flex justify-center space-x-6 mb-8 text-xl text-gray-400">
-            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="hover:text-white transition-colors"><i class="fa-regular fa-envelope"></i></a>
-        </div>
-        
-        <p class="text-xs text-gray-500 font-bold uppercase tracking-widest">
-            @2020 Tomasz Gajda. Hak Cipta Dilindungi.
-        </p>
+        <p>© 2026 Tomasz Gajda. Dibuat responsif, scalable, dan siap dikembangkan.</p>
     </footer>
- 
+
     <script src="js/main.js"></script>
 </body>
 </html>
