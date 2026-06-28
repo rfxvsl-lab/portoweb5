@@ -7,10 +7,7 @@ const SELECTORS = {
     portfolioItem: '[data-portfolio-category]',
     backToTop: '[data-back-to-top]',
     form: '.contact-form',
-    formStatus: '[data-form-status]',
-    parallaxWrap: '[data-parallax-wrap]',
-    parallaxImage: '[data-parallax-image]',
-    parallaxCard: '[data-parallax-card]'
+    formStatus: '[data-form-status]'
 };
 
 const getHeaderOffset = () => document.querySelector('.site-nav')?.offsetHeight + 24 || 88;
@@ -22,14 +19,6 @@ function closeMobileMenu() {
     menu.hidden = true;
     button.setAttribute('aria-expanded', 'false');
     button.setAttribute('aria-label', 'Buka menu navigasi');
-}
-
-function initViewportLock() {
-    document.addEventListener('gesturestart', (event) => event.preventDefault());
-    document.addEventListener('gesturechange', (event) => event.preventDefault());
-    document.addEventListener('wheel', (event) => {
-        if (event.ctrlKey) event.preventDefault();
-    }, { passive: false });
 }
 
 function initMobileMenu() {
@@ -128,49 +117,6 @@ function initPortfolioFilter() {
     });
 }
 
-function initHeroParallax() {
-    const wrap = document.querySelector(SELECTORS.parallaxWrap);
-    const image = document.querySelector(SELECTORS.parallaxImage);
-    const card = document.querySelector(SELECTORS.parallaxCard);
-    if (!wrap || !image || !card) return;
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let ticking = false;
-
-    const resetParallax = () => {
-        wrap.style.removeProperty('--parallax-image-y');
-        wrap.style.removeProperty('--parallax-card-y');
-    };
-
-    const updateParallax = () => {
-        ticking = false;
-        if (reduceMotion.matches) {
-            resetParallax();
-            return;
-        }
-
-        const rect = wrap.getBoundingClientRect();
-        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-        const progress = Math.min(Math.max((viewportHeight - rect.top) / (viewportHeight + rect.height), 0), 1);
-        const imageShift = (progress - 0.5) * 34;
-        const cardShift = (0.5 - progress) * 22;
-
-        wrap.style.setProperty('--parallax-image-y', `${imageShift}px`);
-        wrap.style.setProperty('--parallax-card-y', `${cardShift}px`);
-    };
-
-    const requestUpdate = () => {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(updateParallax);
-    };
-
-    window.addEventListener('scroll', requestUpdate, { passive: true });
-    window.addEventListener('resize', requestUpdate);
-    reduceMotion.addEventListener?.('change', requestUpdate);
-    requestUpdate();
-}
-
 function initBackToTop() {
     const button = document.querySelector(SELECTORS.backToTop);
     if (!button) return;
@@ -209,13 +155,11 @@ function initFormHandling() {
 }
 
 function initAll() {
-    initViewportLock();
     initMobileMenu();
     initSmoothScroll();
     initActiveNavLink();
     initScrollReveal();
     initPortfolioFilter();
-    initHeroParallax();
     initBackToTop();
     initFormHandling();
 }

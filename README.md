@@ -7,8 +7,8 @@ Portfolio satu halaman untuk front-end developer dan UI designer. Versi ini difo
 - Konten berbahasa Indonesia yang lebih jelas untuk hero, layanan, keahlian, proses kerja, portofolio, dan kontak.
 - Struktur HTML semantik dengan `main`, `section`, `article`, label form, skip link, dan atribut ARIA penting.
 - CSS dipusatkan dalam design tokens (`:root`) agar warna, radius, shadow, spacing, dan container mudah dikembangkan.
-- Layout responsif menggunakan fluid container, CSS grid adaptif, breakpoint tablet/mobile, viewport lock sesuai permintaan mobile, dan dukungan `prefers-reduced-motion`.
-- JavaScript modular untuk menu mobile, viewport lock, smooth scroll, active navigation, reveal animation, parallax hero image, filter portofolio, back-to-top, dan validasi form.
+- Layout responsif menggunakan fluid container, CSS grid adaptif, breakpoint tablet/mobile, dan dukungan `prefers-reduced-motion`.
+- JavaScript modular untuk menu mobile, smooth scroll, active navigation, reveal animation, filter portofolio, back-to-top, dan validasi form.
 
 ## Struktur File
 
